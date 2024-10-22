@@ -15,10 +15,10 @@ services:
   app-foyer:
     depends_on:
       - mysqldb
-    image: tp-foyer:latest  # The image of your Spring Boot app, built previously
+    image: tp-foyer:latest
     restart: on-failure
     ports:
-      - "8085:8080"  # Exposing port 8080 of the Spring Boot app to 8085 on the host machine
+      - "8089:8089"  # Mapping 8089 internal port to 8089 external
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/achat_db?createDatabaseIfNotExist=true",
