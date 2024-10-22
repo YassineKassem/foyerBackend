@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/foyer")
+@RequestMapping("/tpfoyer")
 public class FoyerRestController {
 
     IFoyerService foyerService;
