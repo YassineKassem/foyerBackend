@@ -8,13 +8,13 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=achat_db
     ports:
-      - "3306:3306"
+      - "3306:3306"  # MySQL port mapping
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/mysql  # Persistent volume for the MySQL database
   
   app-foyer:
     depends_on:
-      - mysqldb
+      - mysqldb  # Ensure mysqldb starts before app-foyer
     image: tp-foyer:latest
     restart: on-failure
     ports:
@@ -25,7 +25,9 @@ services:
         "spring.datasource.username" : "root",
         "spring.datasource.password" : "root",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update"
+        "spring.jpa.hibernate.ddl-auto" : "update",
+        "server.servlet.context-path" : "/tpfoyer",
+        "server.port" : "8089"
       }'
     stdin_open: true
     tty: true
