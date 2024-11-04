@@ -14,7 +14,7 @@ import java.util.Set;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/foyer")
+@RequestMapping("/tpfoyer")
 public class FoyerRestController {
 
     IFoyerService foyerService;
