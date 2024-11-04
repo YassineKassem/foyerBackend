@@ -1,11 +1,16 @@
 package tn.esprit.tpfoyer.control;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.tpfoyer.entity.Bloc;
+import tn.esprit.tpfoyer.entity.Etudiant;
 import tn.esprit.tpfoyer.entity.Foyer;
 import tn.esprit.tpfoyer.service.IFoyerService;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -46,5 +51,21 @@ public class FoyerRestController {
         Foyer foyer = foyerService.modifyFoyer(f);
         return foyer;
     }
+    /*devops*/
+    @PutMapping("/getFoyer_ParNomUniversite/{nom_universite}")
+    public Foyer Foyer_ParNomUniversite(@PathVariable ("nom_universite") String nomUniversite) {
+        return foyerService.getFoyerByNomUniversite(nomUniversite);
+    }
+    @GetMapping("getBlocByFoyer/{nomFoyer}/blocs")
+    public Set<Bloc> getBlocsByNomFoyer(@PathVariable String nomFoyer) {
+        return foyerService.getBlocsByFoyerByNom(nomFoyer);
+    }
+
+    @PutMapping("/ajouterFoyerEtAffecterAUniversite/{idUniversite}")
+    public Foyer ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer, @PathVariable("idUniversite") long idUniversite) {
+        return foyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+    }
+
+
 
 }
