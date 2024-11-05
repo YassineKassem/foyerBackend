@@ -19,14 +19,14 @@ public class ReservationRestController {
     // http://localhost:8089/tpfoyer/reservation/retrieve-all-reservations
     @GetMapping("/retrieve-all-reservations")
     public List<Reservation> getReservations() {
-        List<Reservation> listReservations = reservationService.retrieveAllReservations();
-        return listReservations;
+
+        return reservationService.retrieveAllReservations();
     }
     // http://localhost:8089/tpfoyer/reservation/retrieve-reservation/8
     @GetMapping("/retrieve-reservation/{reservation-id}")
     public Reservation retrieveReservation(@PathVariable("reservation-id") String rId) {
-        Reservation reservation = reservationService.retrieveReservation(rId);
-        return reservation;
+
+        return reservationService.retrieveReservation(rId);
     }
 
 

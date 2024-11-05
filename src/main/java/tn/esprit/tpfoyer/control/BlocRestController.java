@@ -40,8 +40,8 @@ public class BlocRestController {
     // http://localhost:8089/tpfoyer/bloc/add-bloc
     @PostMapping("/add-bloc")
     public Bloc addBloc(@RequestBody Bloc c) {
-        Bloc bloc = blocService.addBloc(c);
-        return bloc;
+
+        return blocService.addBloc(c);
     }
 
     // http://localhost:8089/tpfoyer/bloc/remove-bloc/{bloc-id}
@@ -53,14 +53,14 @@ public class BlocRestController {
     // http://localhost:8089/tpfoyer/bloc/modify-bloc
     @PutMapping("/modify-bloc")
     public Bloc modifyBloc(@RequestBody Bloc c) {
-        Bloc bloc =blocService.modifyBloc(c);
-        return bloc;
+
+        return blocService.modifyBloc(c);
     }
 
     @GetMapping("/trouver-blocs-sans-foyer")
     public List<Bloc> getBlocswirhoutFoyer() {
-        List<Bloc> listBlocs = blocService.trouverBlocsSansFoyer();
-        return listBlocs;
+
+        return blocService.trouverBlocsSansFoyer();
     }
 
     @GetMapping("/get-bloc-nb-c/{nb}/{c}")
